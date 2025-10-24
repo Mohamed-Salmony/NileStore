@@ -1,0 +1,153 @@
+# ==========================================
+# NileStore - Complete .gitignore
+# ==========================================
+
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# ==========================================
+# Environment Variables
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+*.env
+
+# ==========================================
+# Next.js (Client)
+# ==========================================
+client/.next/
+client/out/
+client/build/
+client/dist/
+client/.vercel
+client/.turbo
+
+# Next.js cache
+client/.next/cache/
+client/next-env.d.ts
+
+# ==========================================
+# TypeScript (Server & Client)
+# ==========================================
+server/dist/
+server/build/
+*.tsbuildinfo
+*.js.map
+
+# ==========================================
+# Testing
+# ==========================================
+coverage/
+*.lcov
+.nyc_output/
+junit.xml
+
+# ==========================================
+# IDE & Editors
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# PM2 (Process Manager)
+# ==========================================
+.pm2/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ==========================================
+# Temporary Files
+# ==========================================
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ==========================================
+# Build Artifacts
+# ==========================================
+dist/
+build/
+out/
+.cache/
+
+# ==========================================
+# Package Manager Locks (Optional - Uncomment if needed)
+# ==========================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ==========================================
+# Uploads & User Files (if stored locally)
+# ==========================================
+uploads/
+public/uploads/
+
+# ==========================================
+# Database Files (if using local DB)
+# ==========================================
+*.sqlite
+*.sqlite3
+*.db
+
+# ==========================================
+# Backup Files
+# ==========================================
+*.bak
+*.backup
+*.old
+
+# ==========================================
+# Misc
+# ==========================================
+.eslintcache
+.stylelintcache
+*.orig
+.vercel
+.turbo
