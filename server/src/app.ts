@@ -57,6 +57,15 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true, timestamp: new Date().toISOString() });
 });
 
+app.get('/api/health', (_req, res) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    environment: env.nodeEnv,
+    version: '1.0.0'
+  });
+});
+
 // API routes
 app.use('/api', routes);
 app.use('/api/storage', storageRoutes);

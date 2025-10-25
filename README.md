@@ -335,48 +335,54 @@ PATCH  /api/orders/:id/status   # تحديث حالة (Admin)
 
 ## 🚢 النشر (Deployment)
 
-### Backend (Server)
+### 🚀 النشر السريع (موصى به)
 
-#### Vercel / Railway / Render
+**Backend على Railway + Frontend على Vercel**
+
 ```bash
-cd server
-npm run build
-
-# متغيرات البيئة المطلوبة:
-# PORT, SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_KEY
+# 1. Supabase: أنشئ مشروع ونفذ SQL schemas
+# 2. Railway: ربط repo + Root: server + Environment Variables
+# 3. Vercel: ربط repo + Root: client + Environment Variables
 ```
 
-#### VPS (مع PM2)
+📖 **أدلة النشر الكاملة**:
+
+| الدليل | الوصف | الوقت المتوقع |
+|--------|-------|---------------|
+| **[QUICK-DEPLOY.md](./QUICK-DEPLOY.md)** | دليل النشر السريع | ~15 دقيقة |
+| **[DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)** | الدليل الكامل المفصل | شامل |
+| **[DEPLOYMENT-CHECKLIST.md](./DEPLOYMENT-CHECKLIST.md)** | قائمة التحقق | - |
+| **[RAILWAY-SETTINGS.md](./RAILWAY-SETTINGS.md)** | إعدادات Railway (نسخ ولصق) | - |
+| **[VERCEL-SETTINGS.md](./VERCEL-SETTINGS.md)** | إعدادات Vercel (نسخ ولصق) | - |
+
+### Backend (Server) - Railway
+
 ```bash
-npm install -g pm2
-cd server
-npm run build
-pm2 start ecosystem.config.js
-pm2 save
-pm2 startup
+# Root Directory: server
+# Environment Variables:
+PORT=4000
+NODE_ENV=production
+SUPABASE_URL=...
+SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
+SUPABASE_JWT_SECRET=...
+SUPABASE_BUCKET=NileStore-Files
 ```
 
-📖 **للتفاصيل**: راجع `server/DEPLOYMENT.md`
+📖 **للتفاصيل**: راجع [server/RAILWAY-DEPLOY.md](./server/RAILWAY-DEPLOY.md)
 
-### Frontend (Client)
+### Frontend (Client) - Vercel
 
-#### Vercel (موصى به)
 ```bash
-cd client
-vercel deploy --prod
-
-# متغيرات البيئة:
-# NEXT_PUBLIC_SUPABASE_URL
-# NEXT_PUBLIC_SUPABASE_ANON_KEY
-# NEXT_PUBLIC_API_URL
+# Root Directory: client
+# Framework: Next.js
+# Environment Variables:
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_API_URL=https://your-railway-app.railway.app/api
 ```
 
-#### Netlify
-```bash
-cd client
-npm run build
-netlify deploy --prod --dir=.next
-```
+📖 **للتفاصيل**: راجع [client/VERCEL-DEPLOY.md](./client/VERCEL-DEPLOY.md)
 
 ---
 
